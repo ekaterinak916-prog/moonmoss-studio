@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[[redirects]]
+  from = "/libros/aventuras-de-noah"
+  to   = "/aventuras-de-noah.html"
+  status = 200

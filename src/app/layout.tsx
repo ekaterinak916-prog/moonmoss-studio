@@ -1,0 +1,55 @@
+import type { Metadata } from 'next'
+import { Playfair_Display, Lato } from 'next/font/google'
+import './globals.css'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import { AOSInit } from '@/components/AOSInit'
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair-next',
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+})
+
+const lato = Lato({
+  subsets: ['latin'],
+  variable: '--font-lato-next',
+  weight: ['300', '400', '700'],
+  display: 'swap',
+})
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Moonmoss Studio',
+    default: 'Moonmoss Studio — Historias que acompañan a los más pequeños',
+  },
+  description:
+    'Moonmoss Studio crea libros ilustrados con acuarelas para los más pequeños. Historias llenas de ternura para niños de 1 a 4 años.',
+  openGraph: {
+    siteName: 'Moonmoss Studio',
+    locale: 'es_ES',
+    type: 'website',
+  },
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html
+      lang="es"
+      className={`${playfair.variable} ${lato.variable}`}
+    >
+      <body className="min-h-screen flex flex-col">
+        <AOSInit />
+        <Header />
+        <main className="flex-1 pt-[60px]">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  )
+}

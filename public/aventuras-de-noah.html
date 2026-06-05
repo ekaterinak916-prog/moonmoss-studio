@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aventuras de Noah — El libro para los más pequeños | Moonmoss Studio</title>
+  <meta name="description" content="Aventuras de Noah: un libro tierno que acompaña a los más pequeños en sus primeras grandes aventuras. Aprende a usar el orinal, vestirse solo y dormirse tranquilo. Para niños de 1 a 4 años.">
+  <meta property="og:title" content="Aventuras de Noah — Moonmoss Studio">
+  <meta property="og:description" content="Un libro tierno para acompañar a los más pequeños en sus primeras grandes aventuras. Por Kate Ranta, Moonmoss Studio.">
+  <meta property="og:image" content="https://document-export.canva.com/c690Q/DAHKxkc690Q/25/thumbnail/0005.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aventuras de Noah — Moonmoss Studio">
+  <meta name="twitter:description" content="Un libro tierno para acompañar a los más pequeños en sus primeras grandes aventuras.">
+  <meta name="twitter:image" content="https://document-export.canva.com/c690Q/DAHKxkc690Q/25/thumbnail/0005.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animate On Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#f5f0e8',
+            'sage-light': '#e8f2e8',
+            sage: '#3d6b42',
+            sky: '#7aabca',
+            'sky-light': '#ddeef5',
+            straw: '#c9a227',
+          },
+          fontFamily: {
+            playfair: ['"Playfair Display"', 'Georgia', 'serif'],
+            lato: ['Lato', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ── Base ────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #f5f0e8;
+      font-family: 'Lato', system-ui, sans-serif;
+      color: #3a3228;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Illustration-palette colour tokens ─────────── */
+    /*
+      Primary CTA  : #3d6b42  deep sage green   (contrast 6.0:1 on white ✓ AA)
+      CTA hover    : #2f5433
+      Sky accent   : #7aabca  pale sky blue
+      Sky light bg : #ddeef5
+      Stars        : #c9a227  warm straw-amber
+      BG cream     : #f5f0e8  paper / warm cream
+      BG sage sect : #e8f2e8  light sage wash
+      Text dark    : #3a3228
+      Text soft    : #6b5d52
+      Text muted   : #8a7a6e
+    */
+
+    /* ── Watercolor radial washes ───────────────────── */
+    .wash-hero {
+      background-color: #f5f0e8;
+      background-image:
+        radial-gradient(ellipse 70% 60% at 10% 60%, rgba(122,171,202,.10) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 20%, rgba(122,158,126,.09) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 70% at 55% 95%, rgba(232,242,232,.60) 0%, transparent 55%);
+    }
+    .wash-section {
+      background-color: #e8f2e8;
+      background-image:
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(245,240,232,.65) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 15% 15%, rgba(122,171,202,.07) 0%, transparent 55%);
+    }
+
+    /* ── Typography helpers ─────────────────────────── */
+    .font-playfair { font-family: 'Playfair Display', Georgia, serif; }
+    .font-lato     { font-family: 'Lato', system-ui, sans-serif; }
+
+    /* ── Sticky header ──────────────────────────────── */
+    #site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background-color: rgba(245,240,232,.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(61,107,66,.18);
+      transition: box-shadow .2s;
+    }
+    #site-header.scrolled {
+      box-shadow: 0 2px 16px rgba(58,50,40,.10);
+    }
+
+    /* ── Buttons ────────────────────────────────────── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      background-color: #3d6b42;
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background-color .2s, box-shadow .2s, transform .15s;
+    }
+    .btn-primary:hover {
+      background-color: #2f5433;
+      box-shadow: 0 6px 22px rgba(61,107,66,.42);
+      transform: translateY(-1px);
+    }
+    .btn-primary:focus-visible {
+      outline: 3px solid #3d6b42;
+      outline-offset: 3px;
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      background-color: transparent;
+      color: #3d6b42;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      border: 2px solid #3d6b42;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background-color .2s, transform .15s;
+    }
+    .btn-outline:hover {
+      background-color: #e8f2e8;
+      transform: translateY(-1px);
+    }
+    .btn-outline:focus-visible {
+      outline: 3px solid #3d6b42;
+      outline-offset: 3px;
+    }
+
+    /* ── Illustration cards ─────────────────────────── */
+    .illus-card {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(58,50,40,.10);
+      transition: transform .25s ease, box-shadow .25s ease;
+      background-color: #e8f2e8;
+      cursor: pointer;
+    }
+    .illus-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 14px 36px rgba(61,107,66,.20);
+    }
+    .illus-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Stars ──────────────────────────────────────── */
+    .star { color: #c9a227; }
+
+    /* ── Decorative divider ─────────────────────────── */
+    .divider {
+      width: 4rem;
+      height: 3px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #7a9e7e, #7aabca);
+      margin: 0 auto;
+    }
+
+    /* ── Tag pills ──────────────────────────────────── */
+    .tag-sage {
+      background-color: #e2ede2;
+      color: #3d6b42;
+      font-family: 'Lato', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      padding: .3rem 1rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    .tag-sky {
+      background-color: #ddeef5;
+      color: #4a7d9c;
+      font-family: 'Lato', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      padding: .3rem 1rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+
+    /* ── Author avatar ──────────────────────────────── */
+    .author-avatar {
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      box-shadow: 0 4px 22px rgba(58,50,40,.14);
+      border: 3px solid #fff;
+      flex-shrink: 0;
+    }
+
+    /* ── Reduced motion ─────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .illus-card, .btn-primary, .btn-outline { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       STICKY HEADER
+  ============================================================ -->
+  <header id="site-header" role="banner">
+    <div style="max-width:64rem; margin:0 auto; padding:.75rem 1.25rem; display:flex; align-items:center; justify-content:space-between;">
+      <a href="#inicio" class="font-playfair" style="font-size:1.15rem; font-weight:600; color:#3a3228; text-decoration:none;">
+        Aventuras de Noah
+      </a>
+      <a
+        href="https://www.amazon.es/dp/B0H3V584T3"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary"
+        style="font-size:.82rem; padding:.55rem 1.25rem;"
+        aria-label="Comprar Aventuras de Noah en Amazon España"
+      >
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        Comprar en Amazon
+      </a>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="inicio" class="wash-hero" style="padding: 7.5rem 1.25rem 5rem;">
+    <div style="max-width:64rem; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:3rem;">
+
+      <!-- Book cover -->
+      <div style="flex-shrink:0; width:min(260px, 70vw); position:relative;">
+        <div style="position:absolute; inset:0; border-radius:1.5rem; background:rgba(61,107,66,.10); transform:translate(10px,10px);"></div>
+        <img
+          src="https://document-export.canva.com/eokS0/DAHKw3eokS0/7/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260603T035000Z&X-Amz-Expires=71630&X-Amz-Signature=5bdcfb04ac817f65875fe63d143c16814adff04ed8cb1132f465b8099fafc9ad&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Jun%202026%2023%3A43%3A50%20GMT"
+          alt="Portada del libro Aventuras de Noah, ilustrado con acuarelas suaves"
+          width="320" height="320"
+          style="position:relative; width:100%; border-radius:1.5rem; box-shadow:0 10px 40px rgba(58,50,40,.20); display:block;"
+          loading="eager"
+        >
+      </div>
+
+      <!-- Text block -->
+      <div style="text-align:center; max-width:36rem;">
+        <span style="display:block; margin-bottom:.75rem;">
+          <img src="/moonmoss_logo_transparent.png" alt="Moonmoss Studio" style="height:22px; width:auto; display:inline-block; vertical-align:middle;">
+        </span>
+        <h1 class="font-playfair" style="font-size:clamp(2.8rem,8vw,5rem); font-weight:700; line-height:1.1; color:#3a3228; margin:0 0 1rem;">
+          Aventuras<br>de Noah
+        </h1>
+        <p class="font-lato" style="font-size:1.15rem; color:#6b5d52; line-height:1.6; margin:0 0 .4rem;">
+          El libro que acompaña a tu pequeño
+        </p>
+        <p class="font-lato" style="font-size:1rem; color:#8a7a6e; line-height:1.6; margin:0 0 2rem;">
+          en sus primeras grandes aventuras
+        </p>
+        <span class="tag-sage" style="margin-bottom:2rem;">Para niños de 1 a 4 años</span>
+        <div style="display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center; margin-top:1.5rem;">
+          <a
+            href="https://www.amazon.es/dp/B0H3V584T3"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+            style="font-size:1rem; padding:.9rem 2rem; box-shadow:0 5px 18px rgba(61,107,66,.35);"
+            aria-label="Comprar el libro Aventuras de Noah en Amazon"
+          >
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            Comprar en Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ILUSTRACIONES
+  ============================================================ -->
+  <section id="ilustraciones" class="wash-section" style="padding:5rem 1.25rem;">
+    <div style="max-width:64rem; margin:0 auto;">
+
+      <div style="text-align:center; margin-bottom:3rem;">
+        <span class="font-lato" style="display:block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#3d6b42; margin-bottom:.75rem;">
+          Un vistazo al interior
+        </span>
+        <h2 class="font-playfair" style="font-size:clamp(2rem,5vw,3rem); font-weight:700; color:#3a3228; margin:0 0 1rem;">
+          Ilustraciones
+        </h2>
+        <div class="divider"></div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1rem;">
+
+        <div class="illus-card" data-aos="fade-up" data-aos-delay="100">
+          <img
+            src="https://document-export.canva.com/c690Q/DAHKxkc690Q/25/thumbnail/0005.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260603T142947Z&X-Amz-Expires=32852&X-Amz-Signature=d85204928021cee58a9e2460e374ea7d41383ebfb52a9bfd0055cf49cf238e8c&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Jun%202026%2023%3A37%3A19%20GMT"
+            alt="Ilustración del libro: Noah dando sus primeros pasos hacia la independencia"
+            loading="lazy" width="447" height="447"
+          >
+        </div>
+
+        <div class="illus-card" data-aos="fade-up" data-aos-delay="200">
+          <img
+            src="https://document-export.canva.com/c690Q/DAHKxkc690Q/25/thumbnail/0007.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260603T012636Z&X-Amz-Expires=77736&X-Amz-Signature=4322c799a07189c9e64076fc78f5daa7864bd42fd5a011d9d7b0e2b5a4647d8f&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Jun%202026%2023%3A02%3A12%20GMT"
+            alt="Ilustración del libro: Noah aprendiendo a vestirse solo"
+            loading="lazy" width="447" height="447"
+          >
+        </div>
+
+        <div class="illus-card" data-aos="fade-up" data-aos-delay="300">
+          <img
+            src="https://document-export.canva.com/c690Q/DAHKxkc690Q/25/thumbnail/0009.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260602%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260602T235658Z&X-Amz-Expires=84877&X-Amz-Signature=125343e5c46b488bf07e0340efff54475d7b86b7daa80da4b1d5129bdc43a341&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Jun%202026%2023%3A31%3A35%20GMT"
+            alt="Ilustración del libro: Noah en su gran aventura cotidiana"
+            loading="lazy" width="447" height="447"
+          >
+        </div>
+
+        <div class="illus-card" data-aos="fade-up" data-aos-delay="400">
+          <img
+            src="https://document-export.canva.com/c690Q/DAHKxkc690Q/29/thumbnail/0013.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260603T173302Z&X-Amz-Expires=21227&X-Amz-Signature=80642748e181f94a344822cc1de6b9e417be921e4574879346f876b0ab5745c1&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Jun%202026%2023%3A26%3A49%20GMT"
+            alt="Ilustración del libro: Noah con valentía ante cada pequeño reto"
+            loading="lazy" width="447" height="447"
+          >
+        </div>
+
+        <div class="illus-card" data-aos="fade-up" data-aos-delay="500">
+          <img
+            src="https://document-export.canva.com/c690Q/DAHKxkc690Q/25/thumbnail/0017.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260603T161110Z&X-Amz-Expires=23351&X-Amz-Signature=d23625e2fcd214895f5600317f0cbe24d80d614dfef2cb05590dc88c9d017f3b&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Jun%202026%2022%3A40%3A21%20GMT"
+            alt="Ilustración del libro: Noah durmiendo tranquilo al final del día"
+            loading="lazy" width="447" height="447"
+          >
+        </div>
+
+        <div class="illus-card" data-aos="fade-up" data-aos-delay="600">
+          <img
+            src="https://document-export.canva.com/c690Q/DAHKxkc690Q/34/thumbnail/0023.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260603%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260603T023716Z&X-Amz-Expires=74084&X-Amz-Signature=c447b6590cfe03d21f8c29c787a22d6007b70993e8336c0c8d7e2912b854c6c1&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Jun%202026%2023%3A12%3A00%20GMT"
+            alt="Ilustración del libro: Noah celebrando cada pequeño logro"
+            loading="lazy" width="447" height="447"
+          >
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       DE QUÉ TRATA
+  ============================================================ -->
+  <section id="sinopsis" style="background-color:#f5f0e8; padding:5rem 1.25rem;">
+    <div data-aos="fade-up" style="max-width:44rem; margin:0 auto; text-align:center;">
+
+      <span class="font-lato" style="display:block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#3d6b42; margin-bottom:.75rem;">
+        El libro
+      </span>
+      <h2 class="font-playfair" style="font-size:clamp(2rem,5vw,3rem); font-weight:700; color:#3a3228; margin:0 0 1rem;">
+        De qué trata
+      </h2>
+      <div class="divider" style="margin-bottom:3rem;"></div>
+
+      <blockquote style="position:relative; padding:0 2rem;">
+        <span
+          class="font-playfair"
+          aria-hidden="true"
+          style="position:absolute; top:-.5rem; left:.25rem; font-size:6rem; line-height:1; color:#7a9e7e; opacity:.25; user-select:none;"
+        >"</span>
+        <p class="font-playfair" style="font-size:clamp(1.1rem,2.5vw,1.4rem); font-style:italic; line-height:1.8; color:#4a3e34; position:relative; z-index:1; margin:0;">
+          Noah aprende a usar el orinal, vestirse solo y dormirse tranquilo.
+          Cada pequeño logro es una gran aventura.
+          Un libro tierno para acompañar a los más pequeños.
+        </p>
+        <span
+          class="font-playfair"
+          aria-hidden="true"
+          style="position:absolute; bottom:-2rem; right:.25rem; font-size:6rem; line-height:1; color:#7a9e7e; opacity:.25; user-select:none;"
+        >"</span>
+      </blockquote>
+
+      <div style="display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; margin-top:3.5rem;">
+        <span class="tag-sage">Autonomía</span>
+        <span class="tag-sky">Primeras aventuras</span>
+        <span class="tag-sage">1 a 4 años</span>
+        <span class="tag-sky">Ternura</span>
+        <span class="tag-sage">Ilustrado con acuarelas</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       LA AUTORA
+  ============================================================ -->
+  <section id="autora" class="wash-section" style="padding:5rem 1.25rem;">
+    <div style="max-width:64rem; margin:0 auto;">
+
+      <div data-aos="fade-up" style="display:flex; flex-direction:column; align-items:center; gap:2.5rem; text-align:center;">
+
+        <!-- Real author photo — circular avatar -->
+        <img
+          src="/foto_autora.jpg"
+          alt="Kate Ranta, autora e ilustradora de Aventuras de Noah y Moonmoss Studio"
+          class="author-avatar"
+          width="160" height="160"
+          style="width:clamp(100px,20vw,160px); height:clamp(100px,20vw,160px);"
+          loading="lazy"
+        >
+
+        <!-- Bio text -->
+        <div style="max-width:32rem;">
+          <span class="font-lato" style="display:block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#3d6b42; margin-bottom:.75rem;">
+            Conoce a la creadora
+          </span>
+          <h2 class="font-playfair" style="font-size:clamp(2rem,5vw,3rem); font-weight:700; color:#3a3228; margin:0 0 .75rem;">
+            Kate Ranta
+          </h2>
+          <p style="margin:0 0 1.25rem;">
+            <img src="/moonmoss_logo_transparent.png" alt="Moonmoss Studio" style="height:22px; width:auto; display:inline-block; vertical-align:middle;">
+          </p>
+          <p class="font-lato" style="font-size:1.05rem; color:#6b5d52; line-height:1.75; margin:0;">
+            Autora e ilustradora detrás de Moonmoss Studio. Crea historias llenas de ternura para los más pequeños.
+          </p>
+          <div style="display:flex; align-items:center; gap:.75rem; justify-content:center; margin-top:1.75rem;">
+            <div style="width:2.5rem; height:2px; border-radius:9999px; background:#7aabca;"></div>
+            <span class="font-lato" style="font-size:.72rem; text-transform:uppercase; letter-spacing:.12em; color:#8a7a6e;">
+              Primera edición 2025
+            </span>
+            <div style="width:2.5rem; height:2px; border-radius:9999px; background:#7aabca;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       COMPRAR
+  ============================================================ -->
+  <section id="comprar" style="background-color:#f5f0e8; padding:5rem 1.25rem 6rem;">
+    <div data-aos="fade-up" style="max-width:28rem; margin:0 auto; text-align:center;">
+
+      <!-- Icon circle -->
+      <div style="width:4rem; height:4rem; border-radius:50%; background-color:#ddeef5; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4a7d9c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </div>
+
+      <span class="font-lato" style="display:block; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#3d6b42; margin-bottom:.75rem;">
+        Disponible ahora
+      </span>
+      <h2 class="font-playfair" style="font-size:clamp(2rem,5vw,3rem); font-weight:700; color:#3a3228; margin:0 0 1.5rem;">
+        Lleva Noah<br>a casa
+      </h2>
+
+      <!-- Star rating -->
+      <div style="display:flex; justify-content:center; gap:.2rem; margin-bottom:1.5rem;" role="img" aria-label="Valoración de 5 estrellas">
+        <svg class="star" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="star" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+
+      <!-- Price -->
+      <div class="font-playfair" style="font-size:3.5rem; font-weight:700; color:#3a3228; line-height:1; margin-bottom:2rem;">
+        12,99 <span style="font-size:2.2rem; vertical-align:super;">€</span>
+      </div>
+
+      <!-- CTAs -->
+      <div style="display:flex; flex-direction:column; gap:.875rem;">
+        <a
+          href="https://www.amazon.es/dp/B0H3V584T3"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+          style="font-size:1rem; padding:1rem 2rem; box-shadow:0 5px 22px rgba(61,107,66,.38); width:100%;"
+          aria-label="Comprar Aventuras de Noah en Amazon España por 12,99 euros"
+        >
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          Comprar en Amazon
+        </a>
+        <a
+          href="https://www.amazon.es/dp/B0H3V584T3"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline"
+          style="font-size:1rem; padding:1rem 2rem; width:100%;"
+          aria-label="Ver Aventuras de Noah en Amazon España"
+        >
+          Ver en Amazon España
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer role="contentinfo" style="background-color:#ddeef5; border-top:1px solid rgba(58,50,40,.08); padding:1.75rem 1.25rem; text-align:center;">
+    <p class="font-lato" style="font-size:.85rem; color:#6b8c7a; margin:0;">
+      <img src="/moonmoss_logo_transparent.png" alt="Moonmoss Studio" style="height:20px; width:auto; display:inline-block; vertical-align:middle;"> · Primera edición 2025
+    </p>
+  </footer>
+
+
+  <!-- ============================================================
+       JS: sticky header + responsive layouts
+  ============================================================ -->
+  <script>
+    // Sticky header shadow on scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // Responsive illustration grid: 3 columns on >= 640px
+    const grid = document.querySelector('#ilustraciones > div > div[style*="grid"]');
+    function updateGrid() {
+      if (grid) {
+        grid.style.gridTemplateColumns = window.innerWidth >= 640
+          ? 'repeat(3, 1fr)'
+          : 'repeat(2, 1fr)';
+        grid.style.gap = window.innerWidth >= 640 ? '1.25rem' : '1rem';
+      }
+    }
+    updateGrid();
+    window.addEventListener('resize', updateGrid, { passive: true });
+
+    // Hero layout: side-by-side on >= 768px
+    const heroInner = document.querySelector('#inicio > div');
+    function updateHero() {
+      if (heroInner) {
+        if (window.innerWidth >= 768) {
+          heroInner.style.flexDirection = 'row';
+          heroInner.style.alignItems = 'center';
+          heroInner.style.justifyContent = 'center';
+          heroInner.style.textAlign = 'left';
+          const textBlock = heroInner.querySelector('div:last-child');
+          if (textBlock) {
+            textBlock.style.textAlign = 'left';
+            const flexItems = textBlock.querySelectorAll('div[style*="justify-content:center"]');
+            flexItems.forEach(el => el.style.justifyContent = 'flex-start');
+          }
+        } else {
+          heroInner.style.flexDirection = 'column';
+          heroInner.style.alignItems = 'center';
+          const textBlock = heroInner.querySelector('div:last-child');
+          if (textBlock) { textBlock.style.textAlign = 'center'; }
+        }
+      }
+    }
+    updateHero();
+    window.addEventListener('resize', updateHero, { passive: true });
+
+    // Author section: side-by-side on >= 768px
+    const authorInner = document.querySelector('#autora > div > div');
+    function updateAuthor() {
+      if (authorInner) {
+        if (window.innerWidth >= 768) {
+          authorInner.style.flexDirection = 'row';
+          authorInner.style.textAlign = 'left';
+          const bio = authorInner.querySelector('div:last-child');
+          if (bio) bio.style.textAlign = 'left';
+          const rule = authorInner.querySelector('div[style*="justify-content:center"]');
+          if (rule) rule.style.justifyContent = 'flex-start';
+        } else {
+          authorInner.style.flexDirection = 'column';
+          authorInner.style.textAlign = 'center';
+          const bio = authorInner.querySelector('div:last-child');
+          if (bio) bio.style.textAlign = 'center';
+        }
+      }
+    }
+    updateAuthor();
+    window.addEventListener('resize', updateAuthor, { passive: true });
+  </script>
+
+  <!-- AOS init -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, offset: 100, easing: 'ease-in-out', once: true });</script>
+
+</body>
+</html>
