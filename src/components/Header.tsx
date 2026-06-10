@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button'
 const navLinks = [
   { href: '/libros', label: 'Libros' },
   { href: '/#mision', label: 'Sobre nosotros' },
-  { href: '/#contacto', label: 'Contacto' },
+  { href: '/contacto', label: 'Contacto' },
+  { href: '/#reservar', label: 'Reservar cita' },
 ]
 
 export function Header() {

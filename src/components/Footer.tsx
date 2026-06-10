@@ -81,8 +81,11 @@ export function Footer() {
             <Link href="/#mision" className="font-lato text-sm block hover:underline" style={{ color: '#6b5d52' }}>
               Sobre nosotros
             </Link>
-            <Link href="/#contacto" className="font-lato text-sm block hover:underline mt-2" style={{ color: '#6b5d52' }}>
+            <Link href="/contacto" className="font-lato text-sm block hover:underline mt-2" style={{ color: '#6b5d52' }}>
               Contacto
+            </Link>
+            <Link href="/#reservar" className="font-lato text-sm block hover:underline mt-2" style={{ color: '#6b5d52' }}>
+              Reservar cita
             </Link>
           </div>
           <div>

@@ -222,6 +222,43 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── RESERVAR ── */}
+      <section id="reservar" className="py-20 px-5" style={{ backgroundColor: '#f5f0e8' }}>
+        <div className="max-w-2xl mx-auto text-center" data-aos="fade-up">
+          <span className="font-lato text-xs font-bold uppercase block mb-4" style={{ color: '#4a7c9e', letterSpacing: '0.15em' }}>
+            Reserva
+          </span>
+          <h2 className="font-playfair font-bold mb-3" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', color: '#3a3228' }}>
+            ¿Hablamos?
+          </h2>
+          <p className="font-lato font-semibold text-base mb-5" style={{ color: '#4a7c9e' }}>
+            Reserva una reunión con Moonmoss Studio
+          </p>
+          <p className="font-lato text-base leading-relaxed mb-10 max-w-lg mx-auto" style={{ color: '#6b5d52' }}>
+            Si tienes alguna pregunta sobre nuestros libros, colaboraciones o proyectos editoriales,
+            estaremos encantadas de hablar contigo.
+          </p>
+          <Button
+            asChild size="lg"
+            className="rounded-full font-lato font-bold mb-12"
+            style={{ backgroundColor: '#4a7c9e', color: '#fff', boxShadow: '0 4px 18px rgba(74,124,158,.30)' }}
+          >
+            <a
+              href="https://calendly.com/studiomoonmoss/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Reservar una reunión
+            </a>
+          </Button>
+          <div
+            className="calendly-inline-widget mx-auto"
+            data-url="https://calendly.com/studiomoonmoss/30min"
+            style={{ minWidth: '320px', height: '700px' }}
+          />
+        </div>
+      </section>
     </>
   )
 }

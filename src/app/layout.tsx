@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Lato } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -53,11 +54,21 @@ export default function RootLayout({
       lang="es"
       className={`${playfair.variable} ${lato.variable}`}
     >
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://assets.calendly.com/assets/external/widget.css"
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <AOSInit />
         <Header />
         <main className="flex-1 pt-[60px]">{children}</main>
         <Footer />
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
